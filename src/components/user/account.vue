@@ -11,7 +11,7 @@
 					<div class="up_lei"><span>我的钱包</span><span>¥1220.0</span></div>
 					<div class="up_lei">
 						<span><router-link to="/user/wallet">充值有礼>></router-link></span>
-						<span><router-link class="exchange" href="###">充值卡兑换</router-link>>></span>
+						<span><router-link class="exchange" to="###">充值卡兑换</router-link>>></span>
 					</div>
 				</div>
 			</div>
