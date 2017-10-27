@@ -18,12 +18,12 @@
 				<div class="itemnav_titleright">
 					<div class="itemnav_timeout">
 						<span class="friday_begin">距离开始</span>
-						<span class="timeout_day">5天</span>
-						<span class="timeout_day">15</span>
+						<span class="timeout_day day">5天</span>
+						<span class="timeout_day hour">15</span>
 						<span class="timeout_colon">:</span>
-						<span class="timeout_day">35</span>
+						<span class="timeout_day minute">35</span>
 						<span class="timeout_colon">:</span>
-						<span class="timeout_day">20</span>
+						<span class="timeout_day second">20</span>
 					</div>
 					<span class="more">更多></span>
 				</div>
@@ -355,12 +355,30 @@
 			},
 			choose:function(){
 				this.show2 = !this.show2;
-			}
+			},
+			Daojishi:function(){
+				var endTime = new Date("2017-11-08 00:00:00");
+				var nowTime = new Date();
+				var t = endTime.getTime() - nowTime.getTime();
+				var d=0,m=0,s=0,h=0;
+				if(t>0){
+					s = Math.floor(t/1000%60);
+					m = Math.floor(t/1000/60%60);
+					h = Math.floor(t/1000/60/60%24);
+					d = Math.floor(t/1000/60/60/24);
+				}
+				$(".day").html(d);
+				$(".hour").html(h);
+				$(".minute").html(m);
+				$(".second").html(s);
+			} 
+			
 		},
 		mounted(){
 			$("#login_mask").click(function(){
 //				$(this).css("display","block");
-			})
+			});
+			setInterval(Daojishi,1000);
 		}
 	}
 </script>
